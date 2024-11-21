@@ -27,7 +27,8 @@ def fetch_expenses():
     query = QSqlQuery("SELECT * FROM expenses ORDER BY date DESC")
     expenses = []
     while query.next():
-        expenses.append([query.value(i)] for i in range(5))
+        row = [query.value(i) for i in range(5)]
+        expenses.append(row)
     return expenses
 
 
